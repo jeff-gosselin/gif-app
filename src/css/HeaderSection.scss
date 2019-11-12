@@ -1,0 +1,80 @@
+@import './variables.scss';
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: $hdr-ht;
+  background-color: $clr-dark;
+  background-image: url('https://www.transparenttextures.com/patterns/black-mamba.png');
+
+  input {
+    outline: none;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -$nav-ht;
+    width: 100vw;
+    height: $nav-ht;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    background-color: $clr-primary;
+
+    button {
+      outline: none;
+      cursor: pointer;
+      padding: 0 1rem;
+      height: 100%;
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.2rem;
+      background-color: $clr-primary;
+      border: none;
+      border-left: 1px solid rgba(255, 255, 255, 0.5);
+      border-right: 1px solid rgba(255, 255, 255, 0.5);
+      transition-duration: 1s;
+
+      &:hover {
+        background-color: $clr-primary-dark;
+        padding: 0 3rem;
+        border-left: 1px solid rgba(255, 255, 255, 0.5);
+        border-right: 1px solid rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+}
+
+/* Animations */
+.slide-down {
+  animation: slideDown 0.85s cubic-bezier(0.42, 0, 1, 1) 0.1s 1 forwards;
+}
+
+.slide-up {
+  animation: slideUp 0.85s cubic-bezier(0.42, 0, 1, 1) 0.1s 1 forwards;
+}
+
+@keyframes slideDown {
+  0% {
+    top: -$hdr-ht;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -$hdr-ht;
+  }
+}

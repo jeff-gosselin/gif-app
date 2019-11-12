@@ -1,0 +1,6 @@
+@import './variables.scss';
+
+#gif-section {
+  margin-top: calc(#{$hdr-ht} + #{$nav-ht});
+  padding: 2rem;
+}
