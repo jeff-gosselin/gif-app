@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import SearchIcon from '../img/search.png';
-import '../css/SearchBar.scss';
+import React, { Component } from "react";
+import SearchIcon from "../img/search.png";
+import "../css/SearchBar.scss";
 
 class SearchBar extends Component {
   state = {
-    query: ''
+    query: ""
   };
 
   handleInput = e => {
@@ -15,19 +15,19 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <form onSubmit={e => this.props.getGifs(e, this.state.query)}>
+      <form onSubmit={e => this.props.handleNewSearch(e, this.state.query)}>
         <input
           onChange={this.handleInput}
-          className='search-input'
-          type='text'
-          placeholder='Search GIFs'
+          className="search-input"
+          type="text"
+          placeholder="Search GIFs"
           value={this.state.query}
         />
         <input
-          className='search-icon'
-          type='image'
+          className="search-icon"
+          type="image"
           src={SearchIcon}
-          alt='Search'
+          alt="Search"
         />
       </form>
     );

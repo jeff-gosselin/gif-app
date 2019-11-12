@@ -10,6 +10,7 @@ header {
   height: $hdr-ht;
   background-color: $clr-dark;
   background-image: url('https://www.transparenttextures.com/patterns/black-mamba.png');
+  z-index: 100;
 
   input {
     outline: none;

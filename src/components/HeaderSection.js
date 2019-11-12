@@ -1,20 +1,23 @@
-import React from 'react';
-import SearchBar from './SearchBar';
-import { Link } from 'react-router-dom';
-import '../css/HeaderSection.scss';
+import React from "react";
+import SearchBar from "./SearchBar";
+import { Link } from "react-router-dom";
+import "../css/HeaderSection.scss";
 
 export const HeaderSection = props => {
   return (
-    <header className={props.page === 'favs' ? 'slide-up' : 'slide-down'}>
-      <SearchBar getGifs={props.getGifs} />
+    <header className={props.page === "favs" ? "slide-up" : "slide-down"}>
+      <SearchBar
+        getGifs={props.getGifs}
+        handleNewSearch={props.handleNewSearch}
+      />
 
       <nav>
-        {props.page === 'favs' ? (
-          <Link to={'/'} className='nav-btn'>
+        {props.page === "favs" ? (
+          <Link to={"/"} className="nav-btn">
             <p>VIEW SEARCH</p>
           </Link>
         ) : (
-          <Link to={'/favorites'} className='nav-btn'>
+          <Link to={"/favorites"} className="nav-btn">
             <p>VIEW FAVS</p>
           </Link>
         )}

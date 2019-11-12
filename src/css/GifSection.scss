@@ -1,6 +1,15 @@
-@import './variables.scss';
+@import "./variables.scss";
 
 #gif-section {
   margin-top: calc(#{$hdr-ht} + #{$nav-ht});
-  padding: 2rem;
+  padding: 1rem;
+  width: 100vw;
+  z-index: 1;
+
+  .gif-section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-rows: 112px;
+    grid-gap: 0.5rem;
+  }
 }

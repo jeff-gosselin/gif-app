@@ -1,22 +1,32 @@
-import React, { Component } from 'react';
-import { SearchPage } from './components/SearchPage';
-import { FavsPage } from './components/FavsPage';
-import { Switch, Route } from 'react-router-dom';
-import axios from 'axios';
-import { baseURL } from './config';
-import './App.css';
+import React, { Component } from "react";
+import { SearchPage } from "./components/SearchPage";
+import { FavsPage } from "./components/FavsPage";
+import { Switch, Route } from "react-router-dom";
+import axios from "axios";
+import { baseURL } from "./config";
+import "./App.css";
 
 class App extends Component {
   state = {
     data: [],
     favs: [],
-    query: '',
+    query: "",
     pagination: 0,
-    perPage: 2
+    perPage: 12
   };
 
+  // Removes any previous search results before fetching new query
+  handleNewSearch = (e, query) => {
+    this.setState({
+      data: []
+    });
+    return this.getGifs(e, query);
+  };
+
+  // Fetches query data and appends if necessary
   getGifs = (e, query) => {
     e.preventDefault();
+    console.log("target", e.target);
     axios
       .get(
         `${baseURL}${query}&offset=${this.state.pagination}&limit=${this.state.perPage}`
@@ -30,6 +40,7 @@ class App extends Component {
       .catch(err => console.error(err));
   };
 
+  // Fetches more data from next page
   getNextPage = e => {
     this.setState(
       {
@@ -45,17 +56,24 @@ class App extends Component {
       <Switch>
         <Route
           exact
-          path='/'
+          path="/"
           render={() => (
             <SearchPage
               data={this.state.data}
               query={this.state.query}
               getGifs={this.getGifs}
+              handleNewSearch={this.handleNewSearch}
               getNextPage={this.getNextPage}
             />
           )}
         />
-        <Route exact path='/favorites' render={() => <FavsPage />} />
+        <Route
+          exact
+          path="/favorites"
+          render={() => (
+            <FavsPage data={this.state.favs} query={this.state.query} />
+          )}
+        />
       </Switch>
     );
   }

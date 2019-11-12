@@ -1,5 +1,11 @@
 @import './variables.scss';
 
-#search-wrapper header {
-  top: -$hdr-ht;
+#search-wrapper {
+  display: flex;
+  justify-content: center;
+
+  header {
+    width: 100vw;
+    top: -$hdr-ht;
+  }
 }
