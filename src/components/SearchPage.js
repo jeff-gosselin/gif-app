@@ -7,7 +7,7 @@ export const SearchPage = props => {
   return (
     <div id="search-wrapper">
       <HeaderSection
-        page="search"
+        webpage="search"
         getGifs={props.getGifs}
         handleNewSearch={props.handleNewSearch}
       />

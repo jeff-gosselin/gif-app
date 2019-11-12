@@ -12,7 +12,7 @@ class App extends Component {
     favs: [],
     query: "",
     pagination: 0,
-    perPage: 12
+    perPage: 36
   };
 
   // Removes any previous search results before fetching new query
@@ -51,7 +51,7 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.data);
+    console.log("X", this.state.load);
     return (
       <Switch>
         <Route

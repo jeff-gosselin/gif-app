@@ -6,7 +6,7 @@ import "../css/FavsPage.scss";
 export const FavsPage = props => {
   return (
     <div id="favs-wrapper">
-      <HeaderSection page="favs" />
+      <HeaderSection webpage="favs" />
       <GifSection webpage="favs" data={props.data} query={props.query} />
     </div>
   );

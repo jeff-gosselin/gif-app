@@ -5,14 +5,14 @@ import "../css/HeaderSection.scss";
 
 export const HeaderSection = props => {
   return (
-    <header className={props.page === "favs" ? "slide-up" : "slide-down"}>
+    <header className={props.webpage === "favs" ? "slide-up" : "slide-down"}>
       <SearchBar
         getGifs={props.getGifs}
         handleNewSearch={props.handleNewSearch}
       />
 
       <nav>
-        {props.page === "favs" ? (
+        {props.webpage === "favs" ? (
           <Link to={"/"} className="nav-btn">
             <p>VIEW SEARCH</p>
           </Link>

@@ -9,16 +9,18 @@ export const GifSection = props => {
     return (
       <Gif
         key={gif.id}
+        id={gif.id}
         image={gif.images.fixed_width_downsampled.url}
-        title={gif.title}
+        webpage={webpage}
       />
     );
   });
   return (
     <div id="gif-section">
+      <div className="gif-section-grid">{gifs}</div>
+
       {query !== "" && webpage === "search" ? (
-        <div>
-          <div className="gif-section-grid">{gifs}</div>
+        <div className="load">
           <button onClick={getNextPage}>Load More</button>
         </div>
       ) : null}
