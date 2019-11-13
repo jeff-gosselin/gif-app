@@ -18,6 +18,7 @@ export const SearchPage = props => {
         query={props.query}
         getNextPage={props.getNextPage}
         addToFavs={props.addToFavs}
+        favorites={props.favorites}
       />
     </div>
   );

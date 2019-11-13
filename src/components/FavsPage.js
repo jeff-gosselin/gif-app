@@ -7,7 +7,12 @@ export const FavsPage = props => {
   return (
     <div id="favs-wrapper">
       <HeaderSection webpage="favs" />
-      <GifSection webpage="favs" data={props.data} query={props.query} />
+      <GifSection
+        webpage="favs"
+        data={props.data}
+        query={props.query}
+        favorites={props.favorites}
+      />
     </div>
   );
 };

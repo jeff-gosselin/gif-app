@@ -52,11 +52,13 @@ class App extends Component {
 
   // Adds GIF to Favorites
   addToFavs = (e, id) => {
+    const checkIfExists = this.state.favs.filter(fav => id === fav.id);
     const favorite = this.state.data.filter(fav => id === fav.id);
-    console.log("favorite", favorite);
-    this.setState({
-      favs: [...favorite, ...this.state.favs]
-    });
+    if (checkIfExists.length < 1) {
+      this.setState({
+        favs: [...favorite, ...this.state.favs]
+      });
+    }
   };
 
   render() {
@@ -75,6 +77,7 @@ class App extends Component {
               getNextPage={this.getNextPage}
               addToFavs={this.addToFavs}
               favAmount={this.state.favs.length}
+              favorites={this.state.favs}
             />
           )}
         />
@@ -82,7 +85,11 @@ class App extends Component {
           exact
           path="/favorites"
           render={() => (
-            <FavsPage data={this.state.favs} query={this.state.query} />
+            <FavsPage
+              data={this.state.favs}
+              query={this.state.query}
+              favorites={this.state.favs}
+            />
           )}
         />
       </Switch>
