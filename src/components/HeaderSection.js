@@ -18,7 +18,9 @@ export const HeaderSection = props => {
           </Link>
         ) : (
           <Link to={"/favorites"} className="nav-btn">
-            <p>VIEW FAVS</p>
+            <p>
+              VIEW <span className="fav-amt">{props.favAmount}</span> FAVS
+            </p>
           </Link>
         )}
       </nav>

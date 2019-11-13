@@ -50,6 +50,15 @@ class App extends Component {
     );
   };
 
+  // Adds GIF to Favorites
+  addToFavs = (e, id) => {
+    const favorite = this.state.data.filter(fav => id === fav.id);
+    console.log("favorite", favorite);
+    this.setState({
+      favs: [...favorite, ...this.state.favs]
+    });
+  };
+
   render() {
     console.log("X", this.state.load);
     return (
@@ -64,6 +73,8 @@ class App extends Component {
               getGifs={this.getGifs}
               handleNewSearch={this.handleNewSearch}
               getNextPage={this.getNextPage}
+              addToFavs={this.addToFavs}
+              favAmount={this.state.favs.length}
             />
           )}
         />

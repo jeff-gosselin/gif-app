@@ -1,4 +1,4 @@
-@import './variables.scss';
+@import "./variables.scss";
 
 header {
   display: flex;
@@ -9,7 +9,7 @@ header {
   width: 100vw;
   height: $hdr-ht;
   background-color: $clr-dark;
-  background-image: url('https://www.transparenttextures.com/patterns/black-mamba.png');
+  background-image: url("https://www.transparenttextures.com/patterns/black-mamba.png");
   z-index: 100;
 
   input {
@@ -52,6 +52,11 @@ header {
         border-left: 1px solid rgba(255, 255, 255, 0.5);
         border-right: 1px solid rgba(255, 255, 255, 0.5);
       }
+
+      .fav-amt {
+        animation: blink 0.75s cubic-bezier(0.42, 0, 1, 1) 0.1s infinite
+          forwards;
+      }
     }
   }
 }
@@ -80,5 +85,17 @@ header {
   }
   100% {
     top: -$hdr-ht;
+  }
+}
+
+@keyframes blink {
+  0% {
+    color: #fff;
+  }
+  50% {
+    color: $clr-dark;
+  }
+  100% {
+    color: #fff;
   }
 }

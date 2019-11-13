@@ -2,10 +2,10 @@ import React from "react";
 import "../css/Gif.scss";
 
 export const Gif = props => {
-  const { image, webpage, id } = props;
+  const { image, webpage, id, addToFavs } = props;
   const overlay = (
     <div className="fav-btn">
-      <button>+</button>
+      <button onClick={e => addToFavs(e, id)}>+</button>
     </div>
   );
   const divStyle = {

@@ -12,6 +12,7 @@ export const GifSection = props => {
         id={gif.id}
         image={gif.images.fixed_width_downsampled.url}
         webpage={webpage}
+        addToFavs={props.addToFavs}
       />
     );
   });

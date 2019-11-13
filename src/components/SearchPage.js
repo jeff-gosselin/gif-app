@@ -10,12 +10,14 @@ export const SearchPage = props => {
         webpage="search"
         getGifs={props.getGifs}
         handleNewSearch={props.handleNewSearch}
+        favAmount={props.favAmount}
       />
       <GifSection
         webpage="search"
         data={props.data}
         query={props.query}
         getNextPage={props.getNextPage}
+        addToFavs={props.addToFavs}
       />
     </div>
   );
