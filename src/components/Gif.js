@@ -5,7 +5,7 @@ export const Gif = props => {
   const { image, webpage, id } = props;
   const overlay = (
     <div className="fav-btn">
-      <button>Add to Favs</button>
+      <button>+</button>
     </div>
   );
   const divStyle = {
