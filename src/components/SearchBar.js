@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import SearchIcon from "../img/search.png";
 import "../css/SearchBar.scss";
 
+// Search bar component that handles the input from the user
 class SearchBar extends Component {
   state = {
     query: ""

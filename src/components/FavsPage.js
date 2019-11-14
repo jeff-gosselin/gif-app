@@ -3,6 +3,7 @@ import { HeaderSection } from "./HeaderSection";
 import { GifSection } from "./GifSection";
 import "../css/FavsPage.scss";
 
+// Favorites page: Consist of Header section which is a nav bar and below a section for favored GIFs
 export const FavsPage = props => {
   return (
     <div id="favs-wrapper">

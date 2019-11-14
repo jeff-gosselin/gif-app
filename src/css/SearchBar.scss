@@ -1,5 +1,6 @@
-@import './variables.scss';
+@import "./variables.scss";
 
+/* Search styling */
 form {
   position: relative;
   display: flex;
@@ -12,7 +13,6 @@ form {
     mix-blend-mode: normal;
     border-left: 1px solid #000;
     padding-left: 0.75rem;
-    // background-image: url('../img/search.svg') no-repeat;
   }
 
   .search-input {
@@ -24,6 +24,7 @@ form {
     padding: 0.5rem 1.5rem;
     border-radius: 2rem;
     width: 70vw;
+    transition-duration: 0.75s;
 
     &::placeholder {
       color: $clr-lt-medium;

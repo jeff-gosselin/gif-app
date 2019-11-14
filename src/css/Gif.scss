@@ -1,8 +1,11 @@
 @import "./variables.scss";
 
+/* Styles each individual GIF */
 .gif-wrapper {
   position: relative;
+  height: $heightGIF;
 
+  /* Favorites toggle button */
   .fav-btn {
     display: flex;
     justify-content: flex-end;

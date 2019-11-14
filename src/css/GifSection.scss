@@ -1,18 +1,34 @@
 @import "./variables.scss";
 
+/* Positions Grid for Favorites page */
+#favs-wrapper {
+  #gif-section {
+    margin-top: $nav-ht;
+  }
+}
+
+/* Page title and No results found message */
+.title {
+  color: $clr-medium;
+  padding-bottom: 0.25rem;
+  font-size: 2rem;
+}
+
+/* Grid positioning and setup */
 #gif-section {
   margin-top: calc(#{$hdr-ht} + #{$nav-ht});
-  padding: 1rem;
+  padding: 2rem;
   width: 100vw;
   z-index: 1;
+  animation: fadeIn 1.25s ease 1 forwards;
 
   .gif-section-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-rows: 112px;
+    grid-template-columns: repeat(auto-fill, minmax(#{$widthGIF}, 1fr));
     grid-gap: 0.5rem;
   }
 
+  /* Load More button */
   .load {
     display: flex;
     justify-content: center;
@@ -39,5 +55,15 @@
         background-color: rgba($clr-medium, 1);
       }
     }
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

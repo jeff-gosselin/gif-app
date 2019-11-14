@@ -3,6 +3,7 @@ import { HeaderSection } from "./HeaderSection";
 import { GifSection } from "./GifSection";
 import "../css/SearchPage.scss";
 
+// The Search page: Consists of a Header Section with Search bar and a section below to populate GIFs
 export const SearchPage = props => {
   return (
     <div id="search-wrapper">
@@ -19,6 +20,7 @@ export const SearchPage = props => {
         getNextPage={props.getNextPage}
         addToFavs={props.addToFavs}
         favorites={props.favorites}
+        resultsFound={props.resultsFound}
       />
     </div>
   );

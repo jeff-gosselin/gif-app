@@ -12,10 +12,12 @@ header {
   background-image: url("https://www.transparenttextures.com/patterns/black-mamba.png");
   z-index: 100;
 
+  /* Removes outline for Search input and Submit button */
   input {
     outline: none;
   }
 
+  /* Navigation */
   nav {
     display: flex;
     justify-content: center;

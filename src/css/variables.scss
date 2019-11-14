@@ -10,3 +10,7 @@ $hdr-ht: 6rem;
 
 /* Navigation Height */
 $nav-ht: 1.5rem;
+
+/* GIF sizing */
+$widthGIF: 200px;
+$heightGIF: calc(#{$widthGIF} * 0.85);

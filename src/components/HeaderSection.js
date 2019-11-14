@@ -3,6 +3,7 @@ import SearchBar from "./SearchBar";
 import { Link } from "react-router-dom";
 import "../css/HeaderSection.scss";
 
+// Header section which includes a search input and navigation toggle button for either search page or favorites page
 export const HeaderSection = props => {
   return (
     <header className={props.webpage === "favs" ? "slide-up" : "slide-down"}>

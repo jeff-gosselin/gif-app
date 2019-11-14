@@ -12,7 +12,8 @@ class App extends Component {
     favs: [],
     query: "",
     pagination: 0,
-    perPage: 36
+    resultsFound: null,
+    perPage: 25
   };
 
   // Removes any previous search results before fetching new query
@@ -26,16 +27,31 @@ class App extends Component {
   // Fetches query data and appends if necessary
   getGifs = (e, query) => {
     e.preventDefault();
-    console.log("target", e.target);
+
+    // Resets status of results bqck to null prior to search
+    this.setState({
+      resultsFound: null
+    });
+
+    // Fetch data
     axios
       .get(
         `${baseURL}${query}&offset=${this.state.pagination}&limit=${this.state.perPage}`
       )
       .then(response => {
-        this.setState({
-          data: [...this.state.data, ...response.data.data],
-          query
-        });
+        // If no results are found, set resultsFound to false
+        if (response.data.data.length === 0) {
+          this.setState({
+            resultsFound: false
+          });
+        } else {
+          // results are found... append results to the data array within the state and set resultsFound to true
+          this.setState({
+            data: [...this.state.data, ...response.data.data],
+            resultsFound: true,
+            query
+          });
+        }
       })
       .catch(err => console.error(err));
   };
@@ -50,7 +66,7 @@ class App extends Component {
     );
   };
 
-  // Adds GIF to Favorites
+  // Adds GIF to Favorites and if already a favorite will execute removeFromFavs
   addToFavs = (e, id) => {
     const checkIfExists = this.state.favs.filter(fav => id === fav.id);
     const favorite = this.state.data.filter(fav => id === fav.id);
@@ -58,11 +74,21 @@ class App extends Component {
       this.setState({
         favs: [...favorite, ...this.state.favs]
       });
+    } else {
+      return this.removeFromFavs(id);
     }
   };
 
+  // Removes a specific gif from Favorites
+  removeFromFavs = id => {
+    const favsWithRemoval = this.state.favs.filter(fav => fav.id !== id);
+    this.setState({
+      favs: favsWithRemoval
+    });
+  };
+
+  // Routes for Search page and Favorites page
   render() {
-    console.log("X", this.state.load);
     return (
       <Switch>
         <Route
@@ -78,6 +104,7 @@ class App extends Component {
               addToFavs={this.addToFavs}
               favAmount={this.state.favs.length}
               favorites={this.state.favs}
+              resultsFound={this.state.resultsFound}
             />
           )}
         />
