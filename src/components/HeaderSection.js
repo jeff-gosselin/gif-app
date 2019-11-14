@@ -11,7 +11,7 @@ export const HeaderSection = props => {
         getGifs={props.getGifs}
         handleNewSearch={props.handleNewSearch}
       />
-
+      ;
       <nav>
         {props.webpage === "favs" ? (
           <Link to={"/"} className="nav-btn">
@@ -20,7 +20,11 @@ export const HeaderSection = props => {
         ) : (
           <Link to={"/favorites"} className="nav-btn">
             <p>
-              VIEW <span className="fav-amt">{props.favAmount}</span> FAVS
+              VIEW{" "}
+              {props.favAmount > 0 ? (
+                <span className="fav-amt">{props.favAmount}</span>
+              ) : null}{" "}
+              FAVS
             </p>
           </Link>
         )}
